@@ -13,7 +13,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/USER/REPO.git'
+        git branch: 'main', url: 'https://github.com/tareklaaouane/jenkins_projectp2.git'
         sh 'pwd && ls -la'
       }
     }
@@ -28,7 +28,7 @@ pipeline {
             ls -la
             exit 1
           fi
-          echo "✅ pom.xml trouvé"
+          echo "pom.xml trouvé"
         '''
       }
     }
