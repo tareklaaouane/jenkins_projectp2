@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DEPLOY_DIR = "/home/lucifer/Deploy"
+    DEPLOY_DIR = "./"
   }
 
   stages {
