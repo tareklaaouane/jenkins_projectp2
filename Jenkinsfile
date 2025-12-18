@@ -45,18 +45,20 @@ pipeline {
       }
     }
 
-    stage('Deploy (Local)') {
+    stage('Deploy') {
       steps {
         sh '''
-          set -e
-          mkdir -p "$WORKSPACE/deploy"
-          cp -v **/target/*.jar "$WORKSPACE/deploy/" 2>/dev/null || true
-          cp -v **/target/*.war "$WORKSPACE/deploy/" 2>/dev/null || true
-          ls -la "$WORKSPACE/deploy" || true
+          echo "🚀 Deploy vers ${DEPLOY_DIR}"
+          mkdir -p "${DEPLOY_DIR}"
+
+          # Copier JAR/WAR (selon ton projet)
+          cp -v target/*.jar "${DEPLOY_DIR}/" 2>/dev/null || true
+          cp -v target/*.war "${DEPLOY_DIR}/" 2>/dev/null || true
+
+          echo "✅ Contenu du dossier de déploiement :"
+          ls -la "${DEPLOY_DIR}"
         '''
       }
-    }
-
     }
   }
 }
