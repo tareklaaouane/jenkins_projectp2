@@ -12,7 +12,8 @@ pipeline {
 
     stage('Checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/USER/REPO.git'
+        git branch: 'main', url: 'https://github.com/tareklaaouane/jenkins_projectp2.git'
+        sh 'pwd && ls -la'
       }
     }
 
@@ -28,7 +29,7 @@ pipeline {
       }
       post {
         always {
-          junit '**/target/surefire-reports/*.xml'
+          junit 'target/surefire-reports/*.xml'
         }
       }
     }
